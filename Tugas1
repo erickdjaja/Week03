@@ -1,0 +1,77 @@
+1) Jelaskan multidimensional arrays dan berikan contoh.
+----------------------------------------------------------------
+Multidimensional array adalah array yang elemennya berupa array lain. 
+Bentuk yang paling umum adalah array 2 dimensi (baris × kolom), tetapi bisa juga 3D dan seterusnya.
+
+Contoh 2D (matriks 2×3):
+int[][] m = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+// Akses elemen baris-1 kolom-2 (indeks mulai 0): m[0][1] == 2
+// Iterasi:
+for (int i = 0; i < m.length; i++) {          // banyak baris
+    for (int j = 0; j < m[i].length; j++) {   // banyak kolom di baris i
+        System.out.print(m[i][j] + " ");
+    }
+    System.out.println();
+}
+
+Contoh 3D (2 blok × 2 baris × 2 kolom):
+int[][][] box = {
+    { {1,2}, {3,4} },
+    { {5,6}, {7,8} }
+};
+// Akses elemen: box[1][0][1] == 6
+
+
+2) Sebutkan dan jelaskan 13 method-method String dalam Java.
+----------------------------------------------------------------
+Berikut 13 method yang sering dipakai (dengan contoh singkat):
+1. length()                -> Mengembalikan panjang string.
+   "Halo".length() = 4
+
+2. charAt(int idx)         -> Mengambil karakter pada indeks tertentu.
+   "Halo".charAt(1) = 'a'
+
+3. substring(int a, int b) -> Mengambil potongan string dari indeks a (inkl.) sampai b (ekskl.).
+   "abcdef".substring(2,5) = "cde"
+   (Overload: substring(int a) dari a sampai akhir)
+
+4. indexOf(String s)       -> Posisi kemunculan pertama s, atau -1 jika tidak ada.
+   "banana".indexOf("na") = 2
+
+5. lastIndexOf(String s)   -> Posisi kemunculan terakhir s.
+   "banana".lastIndexOf("na") = 4
+
+6. toUpperCase()           -> Mengubah ke huruf besar.
+   "Halo".toUpperCase() = "HALO"
+
+7. toLowerCase()           -> Mengubah ke huruf kecil.
+   "Halo".toLowerCase() = "halo"
+
+8. trim()                  -> Menghapus spasi di awal/akhir.
+   "  hi  ".trim() = "hi"
+
+9. equals(Object o)        -> Membandingkan isi string (case-sensitive).
+   "abc".equals("Abc") = false
+
+10. equalsIgnoreCase(String s) -> Membandingkan isi string tanpa memperhatikan huruf besar/kecil.
+    "abc".equalsIgnoreCase("AbC") = true
+
+11. contains(CharSequence s)   -> Mengecek apakah string memuat s.
+    "pemrograman".contains("gram") = true
+
+12. replace(CharSequence a, CharSequence b) -> Mengganti semua a menjadi b.
+    "2024-09-10".replace("-", "/") = "2024/09/10"
+
+13. startsWith(String pfx) -> Mengecek apakah string diawali prefix tertentu.
+    "IF402 - PBO".startsWith("IF402") = true
+
+
+3) Sebutkan 2 keuntungan Immutability dalam Java.
+----------------------------------------------------------------
+a. Thread-safe secara alami: objek immutable tidak bisa diubah setelah dibuat, 
+   sehingga aman dipakai bersama di banyak thread tanpa sinkronisasi tambahan.
+b. Lebih andal sebagai key di struktur data (mis. HashMap): nilai tidak berubah, 
+   hashCode/equals konsisten, meminimalkan bug dan mempermudah reasoning.
